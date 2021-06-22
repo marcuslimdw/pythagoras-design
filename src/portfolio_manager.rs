@@ -1,4 +1,5 @@
-use crate::types::{CalculablePNL, CalculableTotalValue, DateTime, MoneyType, PositionSize};
+use crate::types::{CalculablePNL, CalculableTotalValue, DateTime, MoneyType, InstrumentSize};
+use crate::static_data_manager::{Instrument, ExchangeType};
 
 /// Manages portfolios for the entire trading system.
 pub struct PortfolioManager {
@@ -7,41 +8,45 @@ pub struct PortfolioManager {
 
 /// A portfolio for a given exchange (can be global)
 pub struct Portfolio {
-    exchange: Exchange,
+    exchange: ExchangeType,
     positions: Vec<Position>,
 }
 
 /// A cryptocurrency position.
-struct Position {
+pub struct Position {
     instrument: Instrument,
-    size: PositionSize,
+    size: InstrumentSize,
+    transactions: Vec<Transaction>
 }
 
-/// A cryptocurrency instrument.
-pub struct Instrument {
-    name: String,
+/// A transaction.
+pub struct Transaction {
+    transaction_type: TransactionType,
+    instrument: Instrument,
+    size: InstrumentSize
 }
 
-/// A cryptocurrency exchange.
-enum Exchange {
-    GLOBAL
+/// Whether a transaction is a buy or sell transaction.
+pub enum TransactionType {
+    BUY,
+    SELL
 }
 
 impl PortfolioManager {
-    // Example function to be triggered by action (or manually).
-    pub fn buy(portfolio: Portfolio, instrument: Instrument, amount: PositionSize) {
+    /// Example function to be triggered by action (or manually).
+    pub fn buy(_portfolio: Portfolio, _instrument: Instrument, _amount: InstrumentSize) {
         todo!()
     }
 
-    // Example function to be triggered by action (or manually).
-    pub fn sell(portfolio: Portfolio, instrument: Instrument, amount: PositionSize) {
+    /// Example function to be triggered by action (or manually).
+    pub fn sell(_portfolio: Portfolio, _instrument: Instrument, _amount: InstrumentSize) {
         todo!()
     }
 }
 
 /// Calculate global PNL.
 impl CalculablePNL for PortfolioManager {
-    fn pnl(from: DateTime, to: DateTime) -> MoneyType {
+    fn pnl(_from: DateTime, _to: DateTime) -> MoneyType {
         todo!()
     }
 }
@@ -55,7 +60,22 @@ impl CalculableTotalValue for PortfolioManager {
 
 /// Calculate total portfolio PNL.
 impl CalculablePNL for Portfolio {
-    fn pnl(from: DateTime, to: DateTime) -> MoneyType {
+    fn pnl(_from: DateTime, _to: DateTime) -> MoneyType {
+        todo!()
+    }
+}
+
+impl Position {
+
+    /// Calculate current size of position.
+    fn current_size() -> InstrumentSize {
+        todo!()
+    }
+}
+
+/// Calculate position PNL.
+impl CalculablePNL for Position {
+    fn pnl(_from: DateTime, _to: DateTime) -> i64 {
         todo!()
     }
 }

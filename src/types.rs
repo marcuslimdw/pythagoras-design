@@ -4,7 +4,7 @@ pub struct DateTime;
 /// Use a decimal type in production to avoid precision-related issues.
 pub type MoneyType = i64;
 
-pub type PositionSize = u64;
+pub type InstrumentSize = u64;
 
 /// Implement this to be able to calculate accumulated PNL for an object over a time period.
 pub trait CalculablePNL {

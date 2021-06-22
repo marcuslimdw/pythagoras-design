@@ -19,18 +19,18 @@ enum DataCollectorPointType {}
 
 impl SignalProcessor {
     /// Register a signal to perform certain actions.
-    fn register_signal(signal: Signal) {
+    fn register_signal(_signal: Signal) {
         todo!()
     }
 
     /// Unregister a previously registered signal.
-    fn unregister_signal(signal: Signal) {
+    fn unregister_signal(_signal: Signal) {
         todo!()
     }
 
     /// Handle input from the data collector, converting it into StorageData and writing it if
     /// necessary.
-    async fn handle_input(input: DataCollectorPoint) {
+    async fn handle_input(_input: DataCollectorPoint) {
         todo!()
     }
 }
@@ -45,7 +45,7 @@ trait Storage {
     async fn connect(uri: &str);
 
     /// Check whether certain data should be written to this storage.
-    fn check_responsibility(data: StorageData) -> bool {
+    fn check_responsibility(_data: StorageData) -> bool {
         todo!()
     }
 

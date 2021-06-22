@@ -22,4 +22,5 @@ struct Action {
 enum ActionType {
     BUY,
     SELL,
+// Others are possible (depends on the domain).
 }

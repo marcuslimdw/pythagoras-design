@@ -1,5 +1,5 @@
 use crate::portfolio_manager::Portfolio;
-use crate::signal_builder::{Signal, Strategy};
+use crate::signal_builder::{Strategy};
 use crate::types::DateTime;
 
 struct Sandbox;
@@ -17,7 +17,7 @@ struct BacktestReport;
 impl Sandbox {
     /// Run a set of strategies (each given a specific time period of activity) against an initial
     /// portfolio and generate a detailed result.
-    fn backtest(initial_portfolios: Vec<Portfolio>, strategies: Vec<Strategy>, from: DateTime, to: DateTime) -> BacktestReport {
+    fn backtest(_initial_portfolios: Vec<Portfolio>, _strategies: Vec<Strategy>, _from: DateTime, _to: DateTime) -> BacktestReport {
         todo!()
     }
 }
